@@ -5,33 +5,39 @@ public class Player {
     private String name;
     private int scoreGame;
     private int scoreSet;
+    private int scoreTieBreak;
     private boolean advantage;
 
     public Player(String name) {
         this.name = name;
-        this.scoreGame = 0;
-        this.scoreSet = 0;
-        this.advantage = false;
+        scoreGame = 0;
+        scoreSet = 0;
+        scoreTieBreak = 0;
+        advantage = false;
     }
 
     public void setAdvantage() {
-        this.advantage = (!this.advantage);
+        advantage = true;
+    }
+
+    public void lostAdventage() {
+        advantage = false;
     }
 
     public boolean hasAdvantage() {
-        return this.advantage;
+        return advantage;
     }
 
     public String getName() {
-        return this.name;
+        return name;
     }
 
     public int getScoreGame() {
-        return this.scoreGame;
+        return scoreGame;
     }
 
     public int getScoreSet() {
-        return this.scoreSet;
+        return scoreSet;
     }
 
 
@@ -50,6 +56,18 @@ public class Player {
         } else if (playerScore == 30) {
             setScoreGame(playerScore + 10);
         }
+    }
+
+    public void wonTieBreakPoint() {
+        scoreTieBreak += 1;
+    }
+
+    public int getScoreTieBreak() {
+        return scoreTieBreak;
+    }
+
+    public void setScoreTieBreak(int scoreTieBreak) {
+        this.scoreTieBreak = scoreTieBreak;
     }
 }
 
